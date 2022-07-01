@@ -1,13 +1,13 @@
 # Utils
 Urils is a python3 script, his goal is to make our life easier with some useful "alias".
 
-- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation<a/>
-- 
-- 
-- 
-- 
-- 
-- 
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#global-help-">The global help</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#revshell-generator-">reverse shell generator </a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#ip-">Show all local ips </a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#websearch-">Launch the web browser easely</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#wordlists-">List all your wordlists</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#serv-">Launch a python3 server</a>
 
 # How to install it ?
 
@@ -29,8 +29,7 @@ $ utils --help
 
 ## RevShell generator :
 
-
-
+This option allow you to generate a payload for a reverse shell easely.
 
 ### Help :
 
@@ -43,19 +42,26 @@ $ utils --help
 
 ## Ip :
 
+This option allow you to list the ip of all your interfaces.
+
 ![image](https://user-images.githubusercontent.com/106782577/176953789-80c2ac59-a59c-4639-a70b-3b085c49c3df.png)
 
 ## WebSearch :
 
+This option allow you to launch a google/duckduckgo research in a single command, from your terminal.
 
 https://user-images.githubusercontent.com/106782577/176956311-4786bf03-4f27-41e5-8992-1b7e700ea1eb.mp4
 
 
 ## Wordlists :
 
+This option list all the wordlists in the /usr/share/wordlists directory.
+
 ![image](https://user-images.githubusercontent.com/106782577/176955481-3685079d-49c1-4c1c-8e86-338fe6070421.png)
 
 ## Serv :
+
+This option allow you to launch an http server in the directory of your choice.
 
 https://user-images.githubusercontent.com/106782577/176956133-41096c61-64f7-42a5-944f-10b7f5bd7bce.mp4
 
