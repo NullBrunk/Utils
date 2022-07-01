@@ -1,6 +1,14 @@
 # Utils
 Urils is a python3 script, his goal is to make our life easier with some useful "alias".
 
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation<a/>
+- 
+- 
+- 
+- 
+- 
+- 
+
 # How to install it ?
 
 ```bash
