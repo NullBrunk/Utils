@@ -69,8 +69,8 @@ https://user-images.githubusercontent.com/106782577/176956133-41096c61-64f7-42a5
 
 # Credits
 
--**https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface**   
--**https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator**     
+- **https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface**   
+- **https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator**     
 
 
 
