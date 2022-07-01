@@ -1,5 +1,5 @@
 # Utils
-Utils is a simple script written in python3, his goal is to make the life of the pentester easier with some useful commands.
+**Utils is a simple script written in python3, his goal is to make the life of the pentester easier with some useful commands.**
 
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#global-help-">The global help</a>
@@ -69,8 +69,8 @@ https://user-images.githubusercontent.com/106782577/176956133-41096c61-64f7-42a5
 
 # Credits
 
-https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface     
-https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator
+**https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface     **
+**https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator**
 
 
 
