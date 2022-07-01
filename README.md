@@ -1,5 +1,5 @@
 # Utils
-Urils is a python3 script, his goal is to make our life easier with some useful commands
+Urils is a python3 script, his goal is to make our life easier with some useful commands.
 
 # How to install it ?
 
