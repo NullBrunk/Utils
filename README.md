@@ -8,6 +8,7 @@ Urils is a python3 script, his goal is to make our life easier with some useful 
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#websearch-">Launch the web browser easely</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#wordlists-">List all your wordlists</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#serv-">Launch a python3 server</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#Credits-">Credits</a>
 
 # How to install it ?
 
@@ -65,6 +66,11 @@ This option allow you to launch an http server in the directory of your choice.
 
 https://user-images.githubusercontent.com/106782577/176956133-41096c61-64f7-42a5-944f-10b7f5bd7bce.mp4
 
+
+# Credits
+
+https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface
+https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator
 
 
 
