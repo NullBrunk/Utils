@@ -1,6 +1,17 @@
 # Utils
 Urils is a python3 script, his goal is to make our life easier with some useful commands
 
+# How to install it ?
+
+```bash
+# Install : 
+pip3 install netifaces termcolor
+git clone https://github.com/NullBrunk/Utils/
+cd Utils && sudo chmod 755 utils && sudo mv utils /usr/bin
+
+# Launch :
+$ utils --help 
+```
 
 # How to use it ? 
 
