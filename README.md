@@ -1,5 +1,5 @@
 # Utils
-Utils is a simple script written in python3, his goal is to make the life of the pentester easier with some useful "alias".
+Utils is a simple script written in python3, his goal is to make the life of the pentester easier with some useful commands.
 
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#global-help-">The global help</a>
