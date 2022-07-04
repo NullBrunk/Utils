@@ -136,7 +136,7 @@ class Shell:
         exit() 
     
     
-    def generate(self): # Arg = the shell to use
+    def generate(self): 
     
         """
         
