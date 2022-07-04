@@ -38,8 +38,7 @@ This option allow you to generate a payload for a reverse shell easely.
 
 ### Example :
 
-![image](https://user-images.githubusercontent.com/106782577/177144503-e298cd29-fe3c-4293-9d77-4af51558eceb.png)
-
+![image](https://user-images.githubusercontent.com/106782577/177144664-85fd12a1-5a76-4430-9ad6-666b7499c13c.png)
 ## Ip :
 
 This option allow you to list the ip of all your interfaces.
