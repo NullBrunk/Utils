@@ -38,8 +38,7 @@ This option allow you to generate a payload for a reverse shell easely.
 
 ### Example :
 
-![image](https://user-images.githubusercontent.com/106782577/176953904-85a027c1-3171-4890-92ce-021fffc0dd47.png)
-
+![image](https://user-images.githubusercontent.com/106782577/177144503-e298cd29-fe3c-4293-9d77-4af51558eceb.png)
 
 ## Ip :
 
