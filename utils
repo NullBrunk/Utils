@@ -67,8 +67,7 @@ class Ip:
 
     def show():
         
-        print("\n>", colored("ip", 'white', attrs=["underline", "bold"]), colored("~ display all local ip", "white"), "\n")
-        
+     
 
     
         for i in range(1,len(Ip.inter)-1):
@@ -103,6 +102,9 @@ class Shell:
 
     # All available shells
     
+    def __init__(self, arg):
+        self.arg = arg
+    
     shells = [
         
         "php",
@@ -115,7 +117,7 @@ class Shell:
     ]
     
     
-    def ghelp(self):
+    def ghelp():
     
         """
         
@@ -134,13 +136,17 @@ class Shell:
         exit() 
     
     
-    def generate(self, arg): # Arg = the shell to use
+    def generate(self): # Arg = the shell to use
     
         """
         
         Generate the given shell using a dictionnary
         
         """
+        print('')
+        Good("Dispaying all local ip\n")
+        
+        Ip.show()
         
         ip = input(Info("IP to connect to : "))
         port = input(Info("Port to connect to : "))
@@ -157,7 +163,7 @@ class Shell:
         }
         
         print("")
-        Good(shell_dic[arg])
+        Good(shell_dic[self.arg])
         print("")
         
 
@@ -216,6 +222,33 @@ class Wordlist:
 # --------------------------------------------------------------------------------------------------------------------
 
 
+class Serv:
+    
+    def server():
+        dire = input(Info("Where do you want to serv ? \n( Press enter to serv in current directory ) : ")) 
+
+        if dire == "":
+            dire = "."
+
+        clear()
+
+        print(Info(f"Serving in {dire} , you can access to the server from : \n"))
+
+
+        for i in range(0, len(Ip.Return())):
+            if Ip.Return()[i] == "127.0.0.1":
+                pass
+            else:
+                Good(f"http://{Ip.Return()[i]}:8000/")
+        print("")
+
+        system(f"cd {dire} ; python3 -m http.server 8000")
+            
+            
+# --------------------------------------------------------------------------------------------------------------------
+
+
+
 class Help:
     def __init__(self):
         print("\n>", colored("utils", 'white', attrs=["underline", "bold"]), colored("~ Tool to make the life of pentesters easier ", "white"))
@@ -241,7 +274,7 @@ class Main:
     
     
     def __init__(self):  
-        sh = Shell()
+        
         try:
             tmp = argv[1]
         except:
@@ -262,7 +295,7 @@ class Main:
                 if argv2:
                     
                     if argv2 in ["help", "--help", "-h"]:
-                        sh.ghelp()
+                        Shell.ghelp()
                         exit()
 
                     elif argv2 not in Shell.shells:
@@ -270,12 +303,14 @@ class Main:
                         exit()
 
                     else:
-                        sh.generate(argv[2])    
+                        sh = Shell(argv[2])
+                        sh.generate()    
                 else:
-                    sh.ghelp()
+                    Shell.ghelp()
                 
         
         elif argv[1].lower() == "ip":
+            print("\n>", colored("ip", 'white', attrs=["underline", "bold"]), colored("~ display all local ip", "white"), "\n")
             Ip.show()
         
         elif argv[1].lower() == "ddg":
@@ -302,25 +337,7 @@ class Main:
                 w.ghelp()
         
         elif argv[1].lower() == "serv":
-            
-            dire = input(Info("Where do you want to serv ? \n( Press enter to serv in current directory ) : ")) 
-            
-            if dire == "":
-                dire = "."
-            
-            clear()
-            
-            print(Info(f"Serving in {dire} , you can access to the server from : \n"))
-            
-            
-            for i in range(0, len(Ip.Return())):
-                if Ip.Return()[i] == "127.0.0.1":
-                    pass
-                else:
-                    Good(f"http://{Ip.Return()[i]}:8000/")
-            print("")
-            
-            system(f"cd {dire} ; python3 -m http.server 8000")
+            Serv.server()
         elif argv[1].lower() == "wordlist":
             Wordlist()
         else:
