@@ -62,7 +62,9 @@ This option list all the wordlists in the /usr/share/wordlists directory.
 
 This option allow you to launch an http server in the directory of your choice.
 
-https://user-images.githubusercontent.com/106782577/176956133-41096c61-64f7-42a5-944f-10b7f5bd7bce.mp4
+
+https://user-images.githubusercontent.com/106782577/177181810-56bf362e-20a3-4007-af1e-becd73544b25.mp4
+
 
 
 # Credits
