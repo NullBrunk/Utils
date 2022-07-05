@@ -8,7 +8,7 @@ Basically, his goal is to make your **pentests/ctfs easier**.
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#presentation-of-a-few-options-">Presentation of some options</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#netpy-">the Netpy listenner</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#revshell-generator-">Reverse shell generator </a>
-- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#Credits-">Credits</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#Credits-">Credit</a>
 
 # How to install it ?
 
@@ -69,7 +69,7 @@ https://user-images.githubusercontent.com/106782577/176956311-4786bf03-4f27-41e5
 
 - **https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface**   
 - **https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator**     
-- **https://github.com/RoqueNight/Reverse-Shell-TTY-Cheat-Sheet for the listenner**
+- **https://github.com/RoqueNight/Reverse-Shell-TTY-Cheat-Sheet for the netpy listenner**
 
 
 
