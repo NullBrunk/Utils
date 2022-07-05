@@ -11,7 +11,9 @@
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#Credits-">Credits</a>
 
 # How to install it ?
-
+- **Install ``netcat`` or ``ncat``**
+- **Install ``stty``**
+- 
 ```bash
 # Install : 
 pip3 install netifaces termcolor
