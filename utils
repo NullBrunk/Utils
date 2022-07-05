@@ -371,7 +371,7 @@ class Help:
         print(f"""
 {colored("├──", "white", attrs=['bold'])} {colored("utils gen   ", "blue", attrs=['bold'])}    {colored("Generate reverse shells easely", "white", attrs=['bold'])}      
 {colored("├──", "white", attrs=['bold'])} {colored("utils ip    ", "blue", attrs=['bold'])}    {colored("Display all local ip          ", "white", attrs=['bold'])}
-{colored("├──", "white", attrs=['bold'])} {colored("utils netpy", "blue", attrs=['bold'])}  {colored("Shell stabilizer", "white", attrs=['bold'])}    
+{colored("├──", "white", attrs=['bold'])} {colored("utils netpy   ", "blue", attrs=['bold'])}  {colored("Shell stabilizer", "white", attrs=['bold'])}    
 {colored("├──", "white", attrs=['bold'])} {colored("utils ddg   ", "blue", attrs=['bold'])}    {colored("Searching with duckduckgo     ", "white", attrs=['bold'])}   
 {colored("├──", "white", attrs=['bold'])} {colored("utils google", "blue", attrs=['bold'])}    {colored("Searching with google         ", "white", attrs=['bold'])}  
 {colored("├──", "white", attrs=['bold'])} {colored("utils wordlist", "blue", attrs=['bold'])}  {colored("Listing the /usr/share/wordlists dir", "white", attrs=['bold'])}  
