@@ -1,5 +1,5 @@
 # Utils - the penetration testing toolbox
-**Utils is a toolbox for pentesters written in python3. He allow you to do things like get a tty & stabilize a shell, generate reverse shell payloads  easely, launch python3 server ...**
+**Utils is a toolbox for pentesters written in python3. He allow you to do things like shell stabilization, easy reverse shell generation, launching python3 server and much more.**     
 **Basically, his goal is to make your pentests/ctfs easier.**
 
 
