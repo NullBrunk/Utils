@@ -34,14 +34,14 @@ $ utils --help
 # Presentation of a few options : 
 
 ## Netpy :
-This option allow you to listen for incomming connection, get a TTY, and then fully stabilize the shell.
+Option that allow you to listen for incomming connection, get a TTY, and then fully stabilize the shell.
 
 https://user-images.githubusercontent.com/106782577/177378816-17e83dd9-d055-4784-9b31-6a716522bdc1.mp4
 
 
 ## RevShell generator :
 
-This option allow you to generate a payload for a reverse shell easely.
+Generate a payload for a reverse shell easely.
 
 ### Help :
 
@@ -59,7 +59,7 @@ This option allow you to list the ip of all your interfaces.
 
 ## WebSearch :
 
-This option allow you to launch a google/duckduckgo research in a single command, from your terminal.
+Launch a google/duckduckgo research in a single command, from your terminal.
 
 https://user-images.githubusercontent.com/106782577/176956311-4786bf03-4f27-41e5-8992-1b7e700ea1eb.mp4
 
