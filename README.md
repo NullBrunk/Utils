@@ -1,5 +1,5 @@
 # Utils
-Utils is a toolbox for pentesters written in python3. He allow you to do things like shell stabilization, easy reverse shell generation, launching python3 server and much more.     
+Utils is a toolbox for pentesters written in python3. He allow you to do things like shell stabilization, easy reverse shell generation, launching python3 server, list ip of all interfaces and much more.     
 Basically, his goal is to make your **pentests/ctfs easier**.
 
 
@@ -51,11 +51,6 @@ Generate a payload for a reverse shell easely.
 
 ![image](https://user-images.githubusercontent.com/106782577/177144664-85fd12a1-5a76-4430-9ad6-666b7499c13c.png)
 
-## Ip :
-
-This option allow you to list the ip of all your interfaces.
-
-![image](https://user-images.githubusercontent.com/106782577/176953789-80c2ac59-a59c-4639-a70b-3b085c49c3df.png)
 
 ## WebSearch :
 
