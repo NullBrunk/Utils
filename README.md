@@ -64,7 +64,6 @@ Launch a google/duckduckgo research in a single command, from your terminal.
 https://user-images.githubusercontent.com/106782577/176956311-4786bf03-4f27-41e5-8992-1b7e700ea1eb.mp4
 
 
-
 # Credits
 
 - **https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface**   
