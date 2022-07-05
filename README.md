@@ -27,8 +27,21 @@ $ utils --help
 # How to use it ? 
 
 ## Global help :
+![DeepinScreenshot_select-area_20220705184408](https://user-images.githubusercontent.com/106782577/177376676-8d3cfe40-c086-4118-a031-070ba8c5a127.png)
 
-![image](https://user-images.githubusercontent.com/106782577/176953467-032e1ff0-b3fe-4c35-82bb-8f2b5885f185.png)
+## Netpy :
+This option allow you to listen for incomming connection, get a TTY, and then fully stabilize the shell.
+
+### Help :
+![image](https://user-images.githubusercontent.com/106782577/177377018-2ffd69ae-b4a7-4ad7-af8a-a85a57f428fd.png)
+
+### Example :
+
+
+https://user-images.githubusercontent.com/106782577/177378816-17e83dd9-d055-4784-9b31-6a716522bdc1.mp4
+
+
+
 
 ## RevShell generator :
 
