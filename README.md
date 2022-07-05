@@ -1,6 +1,6 @@
 # Utils
 Utils is a toolbox for pentesters written in python3. He allow you to do things like shell stabilization, easy reverse shell generation, launching python3 server and much more.     
-Basically, his goal is to make your **pentests/ctfs easier.**
+Basically, his goal is to make your **pentests/ctfs easier**.
 
 
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation</a>
