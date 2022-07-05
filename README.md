@@ -5,7 +5,7 @@ Basically, his goal is to make your **pentests/ctfs easier**.
 
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#global-help-">The global help</a>
-- <a href="https://github.com/NullBrunk/Utils#presentation-of-a-few-options-">Presentation of some options</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#presentation-of-a-few-options-">Presentation of some options</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#netpy-">the Netpy listenner</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#revshell-generator-">Reverse shell generator </a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#Credits-">Credits</a>
