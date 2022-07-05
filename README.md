@@ -16,7 +16,7 @@
 - 
 ```bash
 # Install : 
-pip3 install netifaces termcolor
+pip3 install netifaces termcolor pexpect
 git clone https://github.com/NullBrunk/Utils/
 cd Utils && sudo chmod 755 utils && sudo mv utils /usr/bin
 
