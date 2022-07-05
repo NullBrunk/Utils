@@ -1,9 +1,12 @@
-# Utils
-**Utils is a simple script written in python3, his goal is to make the life of the pentester easier with some useful commands.**
+# Utils - the penetration testing toolbox
+**Utils is a toolbox for pentesters written in python3. He allow you to do things like get a tty & stabilize a shell, generate reverse shell payloads  easely, launch python3 server ...
+His goal is to make your pentests/ctfs easier.
+**
 
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#how-to-install-it-">Installation</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#global-help-">The global help</a>
-- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#revshell-generator-">reverse shell generator </a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#netpy-">the Netpy listenner</a>
+- <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#revshell-generator-">Reverse shell generator </a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#ip-">Show all local ips </a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#websearch-">Launch the web browser easely</a>
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#wordlists-">List all your wordlists</a>
