@@ -71,7 +71,7 @@ https://user-images.githubusercontent.com/106782577/177181810-56bf362e-20a3-4007
 
 - **https://www.kali.org/tools/wordlists/ inspired me for the "Graphical" interface**   
 - **https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet for the reverse shell generator**     
-
+- **https://github.com/RoqueNight/Reverse-Shell-TTY-Cheat-Sheet for the listenner**
 
 
 
