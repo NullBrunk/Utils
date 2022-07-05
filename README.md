@@ -14,9 +14,12 @@ Basically, his goal is to make your **pentests/ctfs easier**.
 - <a href="https://github.com/NullBrunk/Utils/blob/main/README.md#Credits-">Credits</a>
 
 # How to install it ?
-- **Install ``netcat`` or ``ncat``**
-- **Install ``stty``**
-- 
+
+**With your package manager, you will need to install :**
+- ``netcat`` **or** ``ncat``
+- ``stty``
+ 
+**Then you can git clone :**
 ```bash
 # Install : 
 pip3 install netifaces termcolor pexpect
