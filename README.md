@@ -34,7 +34,7 @@ $ utils --help
 # Presentation of a few options : 
 
 ## Netpy :
-Option that allow you to listen for incomming connection, get a TTY, and then fully stabilize the shell.
+Option that allow you to listen for incoming connection, get a TTY, and then fully stabilize the shell.
 
 https://user-images.githubusercontent.com/106782577/177378816-17e83dd9-d055-4784-9b31-6a716522bdc1.mp4
 
